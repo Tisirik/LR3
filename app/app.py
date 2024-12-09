@@ -3,7 +3,7 @@ import math
 class Shape:
 
     def __init__(self):
-        self._shape_type = "Geometric Shape" 
+        self._shape_type = "Geometric Shape"
     @staticmethod
     def about():
         print("Программа расчета объема геометрических фигур.")
@@ -12,10 +12,12 @@ class Shape:
         raise NotImplementedError("Этот метод должен быть переопределен в дочернем классе.")
 class Sphere(Shape):
 
-    def init(self, radius):
-        super().init()  
-        self._radius = radius  
-        self._shape_type = "Sphere"  
+
+    def __init__(self, radius):
+        super().__init__()
+        self._radius = radius
+        self._shape_type = "Sphere"
+
 
     @property
     def radius(self):
@@ -29,3 +31,12 @@ class Sphere(Shape):
 
     def calculate_volume(self):
         return (4 / 3) * math.pi * self._radius**3
+if __name__ == "__main__":
+    Shape.about()
+    try:
+        radius = float(input("Введите радиус шара: "))
+        sphere = Sphere(radius)
+        volume = sphere.calculate_volume()
+        print(f"Объем шара с радиусом {sphere.radius} равен {volume:.2f}")
+    except ValueError as e:
+        print(f"Ошибка: {e}")
