@@ -12,10 +12,12 @@ class Shape:
         raise NotImplementedError("Этот метод должен быть переопределен в дочернем классе.")
 class Sphere(Shape):
 
+
     def __init__(self, radius):
         super().__init__()
         self._radius = radius
         self._shape_type = "Sphere"
+
 
     @property
     def radius(self):
@@ -29,7 +31,6 @@ class Sphere(Shape):
 
     def calculate_volume(self):
         return (4 / 3) * math.pi * self._radius**3
-
 if __name__ == "__main__":
     Shape.about()
     try:
